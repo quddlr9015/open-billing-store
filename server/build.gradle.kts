@@ -6,7 +6,7 @@ plugins {
 	kotlin("plugin.jpa") version "1.9.25"
 }
 
-group = "io.byungik"
+group = "io"
 version = "0.0.1-SNAPSHOT"
 description = "A Kotlin Spring Boot server for handling billing and store operations"
 
