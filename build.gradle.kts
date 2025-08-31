@@ -52,3 +52,48 @@ allOpen {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+// Environment-specific build configurations
+tasks.register("bootRunLocal") {
+	group = "application"
+	description = "Run the application with local profile"
+	doFirst {
+		tasks.bootRun.configure {
+			systemProperty("spring.profiles.active", "local")
+		}
+	}
+	finalizedBy(tasks.bootRun)
+}
+
+tasks.register("bootRunDev") {
+	group = "application"
+	description = "Run the application with dev profile"
+	doFirst {
+		tasks.bootRun.configure {
+			systemProperty("spring.profiles.active", "dev")
+		}
+	}
+	finalizedBy(tasks.bootRun)
+}
+
+tasks.register("bootRunProd") {
+	group = "application"
+	description = "Run the application with prod profile"
+	doFirst {
+		tasks.bootRun.configure {
+			systemProperty("spring.profiles.active", "prod")
+		}
+	}
+	finalizedBy(tasks.bootRun)
+}
+
+tasks.register("testLocal") {
+	group = "verification"
+	description = "Run tests with local profile"
+	doFirst {
+		tasks.test.configure {
+			systemProperty("spring.profiles.active", "local")
+		}
+	}
+	finalizedBy(tasks.test)
+}
