@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface ServiceRepository : JpaRepository<Service, Long> {
+interface ServiceRepository : JpaRepository<Service, String> {
     fun findByServiceCode(serviceCode: String): Optional<Service>
     fun findByApiKey(apiKey: String): Optional<Service>
     fun findByStatus(status: ServiceStatus): List<Service>

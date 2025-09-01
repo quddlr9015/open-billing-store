@@ -4,17 +4,30 @@ import jakarta.persistence.*
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "users")
+@Table(
+    name = "users",
+    uniqueConstraints = [
+        UniqueConstraint(name = "uk_user_service", columnNames = ["id", "service_id"])
+    ],
+    indexes = [
+        Index(name = "idx_user_id_service_id", columnList = "user_id, service_id"),
+        Index(name = "idx_service_id", columnList = "service_id")
+    ]
+)
 data class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
 
+    @Column(name = "user_id", nullable = false)
+    val userId: String,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "service_id", nullable = false)
+    val service: Service,
+
     @Column(unique = true, nullable = false)
     val email: String,
-
-    @Column(nullable = false)
-    val password: String,
 
     @Column(name = "first_name", nullable = false)
     val firstName: String,

@@ -5,14 +5,18 @@ import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "products")
+@Table(
+    name = "products",
+    indexes = [Index(name = "idx_service_id", columnList = "service_id")]
+)
 data class Product(
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
-
-    @Column(name = "product_id", unique = true, nullable = false, length = 50)
+    @Column(name = "product_id", length = 10)
     val productId: String,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "service_id", nullable = false)
+    val service: Service,
 
     @Column(nullable = false)
     val name: String,
@@ -25,10 +29,6 @@ data class Product(
 
     @Column(name = "image_url")
     val imageUrl: String? = null,
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "service_id", nullable = false)
-    val service: Service,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")

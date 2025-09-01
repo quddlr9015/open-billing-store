@@ -7,13 +7,10 @@ import java.time.LocalDateTime
 @Table(name = "services")
 data class Service(
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
+    @Column(name = "service_id", length = 10)
+    val serviceId: String,
 
-    @Column(name = "service_code", unique = true, nullable = false, length = 50)
-    val serviceCode: String,
-
-    @Column(name = "service_name", nullable = false, length = 100)
+    @Column(name = "service_name", nullable = false, length = 20)
     val serviceName: String,
 
     @Column(name = "description", columnDefinition = "TEXT")

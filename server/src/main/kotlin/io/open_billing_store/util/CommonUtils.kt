@@ -15,7 +15,7 @@ class CommonUtils(
     @Transactional
     fun generateOrderNumber(): String {
         val sequence = orderSequenceRepository.save(OrderSequence())
-        val timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"))
+        val timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHH"))
         return "ORD-$timestamp-${sequence.id.toString().padStart(6, '0')}"
     }
 }
