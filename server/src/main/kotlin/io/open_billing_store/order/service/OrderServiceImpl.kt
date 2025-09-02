@@ -42,7 +42,7 @@ class OrderServiceImpl(
             user = user,
             service = product.service,
             product = product,
-            currencyCode = "USD", // Default currency, should be configurable
+            currencyCode = "USD", //TODO: create country table and productPriceByCountry table
             productPrice = product.productPrice,
             totalAmount = product.productPrice, // Will be calculated with taxes/discounts later
             status = OrderStatus.PENDING,
