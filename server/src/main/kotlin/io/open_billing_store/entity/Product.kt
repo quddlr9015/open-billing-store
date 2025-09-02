@@ -24,9 +24,6 @@ data class Product(
     @Column(columnDefinition = "TEXT")
     val description: String? = null,
 
-    @Column(precision = 10, scale = 3, nullable = false)
-    val productPrice: BigDecimal,
-
     @Column(name = "image_url")
     val imageUrl: String? = null,
 

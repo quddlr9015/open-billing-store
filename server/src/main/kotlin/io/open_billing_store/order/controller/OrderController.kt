@@ -2,6 +2,7 @@ package io.open_billing_store.order.controller
 
 import io.open_billing_store.entity.Order
 import io.open_billing_store.order.request.OrderInitRequest
+import io.open_billing_store.order.response.OrderInitResponse
 import io.open_billing_store.order.service.OrderService
 import io.open_billing_store.repository.OrderRepository
 import org.springframework.http.HttpHeaders
@@ -17,7 +18,7 @@ class OrderController(
     fun orderInit(
         @RequestBody request: OrderInitRequest,
         @RequestHeader headers: HttpHeaders
-    ): ResponseEntity<Order> {
+    ): ResponseEntity<OrderInitResponse> {
         val order = orderService.createOrder(request);
         return ResponseEntity.ok(order)
     }

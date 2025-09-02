@@ -51,7 +51,8 @@ data class Payment(
 )
 
 enum class PaymentMethod {
-    CREDIT_CARD, PAYPAL
+    STRIPE
+ //TODO: APPLE_PAY, GOOGLE_PAY
 }
 
 enum class PaymentStatus {
