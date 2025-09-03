@@ -14,4 +14,6 @@ interface CountryRepository : JpaRepository<Country, Long> {
     fun findByIsActiveTrue(): List<Country>
     
     fun findByCountryCodeIgnoreCaseAndIsActiveTrue(countryCode: String): Country?
+    
+    fun findByCountryCodeIn(countryCodes: List<String>): List<Country>
 }
