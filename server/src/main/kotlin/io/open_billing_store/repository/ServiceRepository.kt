@@ -9,7 +9,7 @@ import java.util.*
 
 @Repository
 interface ServiceRepository : JpaRepository<Service, String> {
-    fun findByServiceCode(serviceCode: String): Optional<Service>
+    fun findByServiceId(serviceId: String): Optional<Service>
     fun findByApiKey(apiKey: String): Optional<Service>
     fun findByStatus(status: ServiceStatus): List<Service>
     fun findByServiceNameContainingIgnoreCase(serviceName: String): List<Service>
@@ -17,9 +17,6 @@ interface ServiceRepository : JpaRepository<Service, String> {
     @Query("SELECT s FROM Service s WHERE s.status = 'ACTIVE'")
     fun findActiveServices(): List<Service>
     
-    @Query("SELECT s FROM Service s WHERE s.webhookUrl IS NOT NULL AND s.status = 'ACTIVE'")
-    fun findServicesWithWebhook(): List<Service>
-    
-    fun existsByServiceCode(serviceCode: String): Boolean
+    fun existsByServiceId(serviceId: String): Boolean
     fun existsByApiKey(apiKey: String): Boolean
 }

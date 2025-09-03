@@ -20,14 +20,14 @@ interface OrderRepository : JpaRepository<Order, Long> {
     fun findByDueDateBeforeAndStatus(dueDate: LocalDate, status: OrderStatus): List<Order>
     
     // Service-based queries
-    fun findByServiceId(serviceId: Long): List<Order>
+    fun findByServiceServiceId(serviceId: String): List<Order>
     fun findByService(service: Service): List<Order>
-    fun findByServiceIdAndStatus(serviceId: Long, status: OrderStatus): List<Order>
+    fun findByServiceServiceIdAndStatus(serviceId: String, status: OrderStatus): List<Order>
     fun findByServiceAndUserIdOrderByCreatedAtDesc(service: Service, userId: Long): List<Order>
     
     @Query("SELECT o FROM Order o WHERE o.dueDate < :date AND o.status = 'CONFIRMED'")
     fun findOverdueOrders(date: LocalDate): List<Order>
     
-    @Query("SELECT o FROM Order o WHERE o.service.id = :serviceId AND o.dueDate < :date AND o.status = 'CONFIRMED'")
-    fun findOverdueOrdersByService(serviceId: Long, date: LocalDate): List<Order>
+    @Query("SELECT o FROM Order o WHERE o.service.serviceId = :serviceId AND o.dueDate < :date AND o.status = 'CONFIRMED'")
+    fun findOverdueOrdersByService(serviceId: String, date: LocalDate): List<Order>
 }
