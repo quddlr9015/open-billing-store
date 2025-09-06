@@ -19,6 +19,10 @@ data class Payment(
     val order: Order? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "subscription_id")
+    val subscription: Subscription? = null,
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     val user: User,
 
@@ -31,8 +35,14 @@ data class Payment(
     @Enumerated(EnumType.STRING)
     val status: PaymentStatus = PaymentStatus.PENDING,
 
+    @Enumerated(EnumType.STRING)
+    val type: PaymentType = PaymentType.ONE_TIME,
+
     @Column(name = "external_transaction_id")
     val externalTransactionId: String? = null,
+
+    @Column(name = "external_subscription_id")
+    val externalSubscriptionId: String? = null,
 
     @Column(name = "payment_gateway")
     val paymentGateway: String? = null,
@@ -51,8 +61,12 @@ data class Payment(
 )
 
 enum class PaymentMethod {
-    STRIPE
- //TODO: APPLE_PAY, GOOGLE_PAY
+    STRIPE,
+    PAYPAL
+}
+
+enum class PaymentType {
+    ONE_TIME, RECURRING
 }
 
 enum class PaymentStatus {
