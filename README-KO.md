@@ -244,36 +244,12 @@ REDIS_PORT=6379
 KAFKA_BOOTSTRAP_SERVERS=localhost:9092
 ```
 
-## 🔐 보안 기능
-
-- **입력 검증**: 모든 API 엔드포인트에 대한 포괄적인 검증
-- **SQL 인젝션 보호**: 매개변수화된 쿼리를 사용한 JPA/Hibernate
-- **인증 및 권한 부여**: Spring Security 통합
-- **결제 데이터 암호화**: 민감한 데이터의 저장 중 암호화
-- **웹훅 서명 검증**: 안전한 웹훅 페이로드 검증
-- **속도 제한**: API 요청 속도 제한
-- **CORS 설정**: 교차 출처 요청 보안
-
-## 📊 모니터링 및 분석
-
-### 내장 모니터링
-- **상태 확인**: `/actuator/health`
-- **메트릭**: `/actuator/metrics`
-- **애플리케이션 정보**: `/actuator/info`
-- **데이터베이스 상태**: 연결 풀 및 쿼리 메트릭
-
-### 사용자 정의 메트릭
-- 결제 성공/실패율
-- 구독 해지율 분석
-- 게이트웨이 성능 모니터링
-- 세금 계산 정확도
-
 ## 🔧 설정
 
 ### 애플리케이션 프로필
 
 #### 로컬 (`application-local.properties`)
-- 빠른 개발을 위한 H2 인메모리 데이터베이스
+- 로컬 MySQL 데이터베이스 연결
 - 디버그 로깅 활성화
 - 모의 결제 게이트웨이
 
@@ -287,19 +263,6 @@ KAFKA_BOOTSTRAP_SERVERS=localhost:9092
 - 오류 수준 로깅만
 - 라이브 결제 게이트웨이 설정
 - 보안 강화
-
-## 🤝 기여하기
-
-기여를 환영합니다! 자세한 내용은 [Contributing Guide](CONTRIBUTING.md)를 참조하세요.
-
-### 개발 설정
-1. 저장소 포크
-2. 기능 브랜치 생성 (`git checkout -b feature/awesome-feature`)
-3. 변경 사항을 만들고 테스트 추가
-4. 모든 테스트가 통과하는지 확인 (`./gradlew test`)
-5. 변경 사항 커밋 (`git commit -m 'Add awesome feature'`)
-6. 브랜치에 푸시 (`git push origin feature/awesome-feature`)
-7. Pull Request 열기
 
 ### 코드 표준
 - Kotlin 코딩 컨벤션 따르기
@@ -341,20 +304,9 @@ KAFKA_BOOTSTRAP_SERVERS=localhost:9092
 
 이 프로젝트는 MIT 라이센스 하에 라이센스가 부여됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
-## 🙏 감사의 말
+## 🙏 참고자료
 
-- [Spring Boot](https://spring.io/projects/spring-boot) - 놀라운 프레임워크
-- [Stripe](https://stripe.com) - 결제 처리 인프라
-- [PayPal](https://developer.paypal.com) - 글로벌 결제 솔루션
-- [Kotlin](https://kotlinlang.org) - 간결하고 안전한 프로그래밍 언어
-
-## 📞 지원
-
-- **문서**: [전체 API 가이드](server/PAYMENT_API_GUIDE.md)
-- **이슈**: [GitHub Issues](https://github.com/your-username/open-billing-store/issues)
-- **토론**: [GitHub Discussions](https://github.com/your-username/open-billing-store/discussions)
-- **이메일**: your.email@example.com
-
----
-
-**오픈 빌링 스토어** - 한 번에 하나의 결제로 빌링 시스템의 미래를 구축합니다. 💳✨
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Stripe](https://stripe.com)
+- [PayPal](https://developer.paypal.com)
+- [Kotlin](https://kotlinlang.org)
