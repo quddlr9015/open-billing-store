@@ -67,7 +67,7 @@ An open-source billing and payment processing system designed for multi-service 
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/open-billing-store.git
+git clone https://github.com/quddlr9015/open-billing-store.git
 cd open-billing-store
 ```
 
@@ -174,16 +174,6 @@ For complete API documentation, see [PAYMENT_API_GUIDE.md](server/PAYMENT_API_GU
 - **Testing**: JUnit 5, Mockito, Testcontainers
 - **Build Tool**: Gradle with Kotlin DSL
 
-### Frontend (Client Examples)
-- **HTML/CSS/JavaScript**: Universal payment form
-- **Payment Integration**: NaverPay, Stripe, PayPal examples
-
-### Infrastructure
-- **Containerization**: Docker & Docker Compose
-- **Monitoring**: Spring Boot Actuator
-- **Message Queue**: Apache Kafka (Spring Kafka)
-- **Internationalization**: ICU4J for currency handling
-
 ## 🧪 Testing
 
 ### Running Tests
@@ -243,37 +233,12 @@ REDIS_PORT=6379
 # Kafka (optional)
 KAFKA_BOOTSTRAP_SERVERS=localhost:9092
 ```
-
-## 🔐 Security Features
-
-- **Input Validation**: Comprehensive validation for all API endpoints
-- **SQL Injection Protection**: JPA/Hibernate with parameterized queries
-- **Authentication & Authorization**: Spring Security integration
-- **Payment Data Encryption**: Sensitive data encryption at rest
-- **Webhook Signature Verification**: Secure webhook payload validation
-- **Rate Limiting**: API request rate limiting
-- **CORS Configuration**: Cross-origin request security
-
-## 📊 Monitoring & Analytics
-
-### Built-in Monitoring
-- **Health Checks**: `/actuator/health`
-- **Metrics**: `/actuator/metrics`
-- **Application Info**: `/actuator/info`
-- **Database Status**: Connection pool and query metrics
-
-### Custom Metrics
-- Payment success/failure rates
-- Subscription churn analysis
-- Gateway performance monitoring  
-- Tax calculation accuracy
-
 ## 🔧 Configuration
 
 ### Application Profiles
 
 #### Local (`application-local.properties`)
-- H2 in-memory database for quick development
+- Local Mysql Connection
 - Debug logging enabled
 - Mock payment gateways
 
@@ -287,19 +252,6 @@ KAFKA_BOOTSTRAP_SERVERS=localhost:9092
 - Error-level logging only
 - Live payment gateway configurations
 - Security hardening
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Development Setup
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/awesome-feature`)
-3. Make your changes and add tests
-4. Ensure all tests pass (`./gradlew test`)
-5. Commit your changes (`git commit -m 'Add awesome feature'`)
-6. Push to the branch (`git push origin feature/awesome-feature`)
-7. Open a Pull Request
 
 ### Code Standards
 - Follow Kotlin coding conventions
@@ -341,20 +293,12 @@ Excellent for learning about:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 🙏 Helpful Documents
 
-- [Spring Boot](https://spring.io/projects/spring-boot) - The amazing framework
-- [Stripe](https://stripe.com) - Payment processing infrastructure
-- [PayPal](https://developer.paypal.com) - Global payment solutions
-- [Kotlin](https://kotlinlang.org) - Concise and safe programming language
-
-## 📞 Support
-
-- **Documentation**: [Full API Guide](server/PAYMENT_API_GUIDE.md)
-- **Issues**: [GitHub Issues](https://github.com/your-username/open-billing-store/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/open-billing-store/discussions)
-- **Email**: your.email@example.com
-
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Stripe](https://stripe.com)
+- [PayPal](https://developer.paypal.com)
+- [Kotlin](https://kotlinlang.org)
 ---
 
 **Open Billing Store** - Building the future of billing systems, one payment at a time. 💳✨
